@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation App</title>
+    <link rel="manifest" href="manifest.json" />
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; margin: 20px;"> 
+
+    <!-- Heading Image -->
+    <img src="https://see.fontimg.com/api/rf5/7BZBK/N2VmMWY0OTg4ZDNiNDI5OThhNzQzNWMzMDM0YTRhMDUub3Rm/VHJhbnNhbGF0ZSBBcHA/goingclapdemo-normal.png?r=fs&h=65&w=1000&fg=000000&bg=FFFFFF&tb=1&s=65" alt="Translation App" style="max-width: 100%; height: auto;"/>
+
+    <br><br>
+
+    <!-- New Subheading Image -->
+    <img src="https://see.fontimg.com/api/rf5/R70o/ZjczNDVjODNlZDkwNDkxNjg4YzgyOGI1ZmI4MTdmMzIudHRm/VHlwZSBvciBwYXN0ZSB5b3VyIHRleHQgYmVsb3csIGFuZCB1c2UgdGhlIGRyb3Bkb3duIHRvIHNlbGVjdCBsYW5ndWFnZTo/what-sound-pounds-normal.png?r=fs&h=18&w=1000&fg=000000&bg=FFFFFF&tb=1&s=18" alt="Type or paste your text below, and use the dropdown to select your language" style="max-width: 100%; height: auto;"/>
+
+    <br><br>
+
+    <!-- Input Text Area -->
+    <textarea id="inputText" placeholder="Enter text here..." 
+              style="width: 80%; height: 100px; padding: 10px; font-size: 16px;" 
+              oninput="updateTranslationText()"></textarea>
+    <br><br>
+
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element" style="margin-top: 20px;"></div>
+
+    <br>
+    <!-- Translated Output Area -->
+    <div id="outputArea" style="border: 1px solid #ccc; padding: 20px; margin: 20px auto; width: 80%; font-size: 16px;">
+        <p id="outputText" style="color: #888;">Translation will appear here...</p>
+    </div>
+
+    <br><br>
+    
+    <!-- Made by Image -->
+    <img src="https://see.fontimg.com/api/rf5/2ve8/NmY0YzdiNjdhOGYxNDc5Mzk0NWU1MzI1ZDQ0ZGY4YzkudHRm/TWFkZSBCeSBTcGFya3di/ice-andsnow-normal.png?r=fs&h=18&w=1000&fg=000000&bg=FFFFFF&tb=1&s=18" 
+         alt="Made by SparkWb" style="max-width: 100%; height: auto;"/>
+
+    <!-- JavaScript -->
+    <script>
+        // Load Google Translate Widget
+        function loadGoogleTranslate() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+
+        // Add the Google Translate script dynamically
+        const script = document.createElement('script');
+        script.src = "https://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate";
+        document.head.appendChild(script);
+
+        // Function to update the output text with user input
+        function updateTranslationText() {
+            const inputText = document.getElementById("inputText").value;
+            const outputTextElement = document.getElementById("outputText");
+            
+            // Update the output area text with what's typed in the textarea
+            if (inputText.trim() === "") {
+                outputTextElement.textContent = "Translation will appear here...";
+            } else {
+                outputTextElement.textContent = inputText;
+            }
+        }
+        
+        if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('service-worker.js')
+  }
+    </script>
+</body>
+</html>

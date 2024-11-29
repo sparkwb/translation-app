@@ -1,0 +1,25 @@
+{
+  "name": "Translate App",
+  "short_name": "Translate App",
+  "start_url": "https://kevinspark.netlify.app/transalate/index.html",
+  "scope": "https://kevinspark.netlify.app/transalate/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#4a90e2",
+  "description": "Made By SparkWb (Github)",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/BGpwmXt/translate.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.ibb.co/BGpwmXt/translate.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "dir": "ltr",
+  "lang": "en",
+  "orientation": "portrait"
+}
